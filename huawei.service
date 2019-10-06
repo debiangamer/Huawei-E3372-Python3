@@ -1,14 +1,13 @@
 [Unit]
 Description=Setup Huawei LTE test
-After=network.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
-ExecStartPre=/bin/sleep 30
+ExecStartPre=/bin/sleep 5
 Type=simple
 ExecStart=/home/xfce/Documents/routers/huawei.sh
 RemainAfterExit=true
-# ExecStop=/opt/foo/teardown-foo.sh
-# StandardOutput=journal
 
 [Install]
 WantedBy=multi-user.target
